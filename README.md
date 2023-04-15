@@ -15,4 +15,4 @@ Group Chat :- [Kynan Support](https://t.me/kynansupport)
 
 ### Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Onlymeriz/Session)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/naya1503/Session)
