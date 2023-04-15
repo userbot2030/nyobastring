@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_ID = os.getenv("API_ID", "").strip()
-API_HASH = os.getenv("API_HASH", "").strip()
-BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
-DATABASE_URL = os.getenv("DATABASE_URL", "").strip() # Not a necessary variable anymore but you can add to get stats
+API_ID = os.getenv("API_ID", "1634450").strip()
+API_HASH = os.getenv("API_HASH", "1a42e816cae8d86e71a4c466bba19b8c").strip()
+BOT_TOKEN = os.getenv("BOT_TOKEN", "5690264568:AAElkl2GGcDaK2VsRBFgcSeZd2An_C-tG5s").strip()
+DATABASE_URL = os.getenv("DATABASE_URL", "postgres://dnwmrnvt:mS08UYFor_mMH8333zNaWX-fWOf28m51@hansken.db.elephantsql.com/dnwmrnvt").strip() # Not a necessary variable anymore but you can add to get stats
 MUST_JOIN = os.getenv("MUST_JOIN", "kynansupport")
 
 if not API_ID:
