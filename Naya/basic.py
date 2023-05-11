@@ -1,6 +1,7 @@
 from data import Data
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, Message
+from pyrogram.errors import *
 
 
 def filter(cmd: str):
@@ -13,11 +14,20 @@ GUA = [1054295664, 1898065191]
 async def start(bot: Client, msg: Message):
     user = await bot.get_me()
     mention = user.mention
-    await bot.send_message(
-        msg.chat.id,
-        Data.START.format(msg.from_user.mention, mention),
-        reply_markup=InlineKeyboardMarkup(Data.buttons)
-    )
+    try:
+        await bot.send_message(
+            msg.chat.id,
+            Data.START.format(msg.from_user.mention, mention),
+            reply_markup=InlineKeyboardMarkup(Data.buttons)
+        )
+    except UserBannedInChannel as e:
+        if e.channel_id == -1001812143750:
+            await bot.send_message(
+                msg.chat.id,
+                "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
+            )
+        else:
+            pass
 
 
 # Help Message
