@@ -1,6 +1,5 @@
 from pyrogram.types import Message
 from pyrogram import Client, filters
-from bot import app
 from .basic import GUA
 from .database.user import add_served_user, get_served_users
 
@@ -17,7 +16,7 @@ async def _stats(_, msg: Message):
 
 
 @Client.on_message(filters.command("bacot"))
-async def bacot(client, message):
+async def bacot(bot: Client, message):
     if len(message.command) > 1:
         text = " ".join(message.command[1:])
     elif message.reply_to_message is not None:
@@ -40,7 +39,7 @@ async def bacot(client, message):
     sent_count = 0
     for x in babi:
         try:
-            await app.send_message(x, text)
+            await bot.send_message(x, text)
             sent_count += 1
         except Exception as e:
             await message.reply(f"Error saat mengirim pesan ke {x}: {e}")
