@@ -12,26 +12,23 @@ async def users_sql(_, msg: Message):
 @Client.on_message(filters.user(GUA) & filters.command("stats"))
 async def _stats(_, msg: Message):
     users = len(await get_served_users())
-    await msg.reply_text(f"» Kumpulan babi babi liar :\n\nTotal ada {users} babi ")
+    await msg.reply_text(f"**✓ Kumpulan babi babi liar :\n\nTotal ada `{users}` babi **")
 
 
 @Client.on_message(filters.command("bacot"))
 async def bacot(bot: Client, message):
+    if message.from_user.id not in GUA:
+        return await message.reply_text(
+            "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>",
+        )
     if len(message.command) > 1:
         text = " ".join(message.command[1:])
     elif message.reply_to_message is not None:
         text = message.reply_to_message.text
     else:
-        await message.reply(
-            "<code>Silakan sertakan pesan atau balas pesan yang ingin disiarkan.</code>"
+        return await message.reply(
+            "<code>Silakan sertakan pesan atau balas pesan yang ingin disiarkan.</code>",
         )
-        return
-      
-    if message.from_user.id not in GUA:
-        await message.reply_text(
-            "<b>Lu siapa Monyeddd.</b>"
-        )
-        return
       
     kntl = 0
     mmk = []
