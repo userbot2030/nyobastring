@@ -22,7 +22,7 @@ async def start(bot: Client, msg: Message):
             Data.START.format(msg.from_user.mention, mention),
             reply_markup=InlineKeyboardMarkup(Data.buttons)
         )
-    except UserBannedInChannel in MUST_JOIN:
+    except UserBannedInChannel == MUST_JOIN:
         return await bot.send_message(
                 msg.chat.id,
                 "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
