@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", "")
+API_ID = int(getenv("API_ID", ""))
 API_HASH = getenv("API_HASH", "")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 
@@ -17,8 +17,3 @@ elif not API_HASH:
     raise SystemExit("No API_HASH found. Exiting...")
 elif not BOT_TOKEN:
     raise SystemExit("No BOT_TOKEN found. Exiting...")
-
-
-
-if 'postgres' in DATABASE_URL and 'postgresql' not in DATABASE_URL:
-    DATABASE_URL = DATABASE_URL.replace("postgres", "postgresql")
