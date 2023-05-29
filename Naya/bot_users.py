@@ -43,7 +43,7 @@ async def bacot(client, message):
             await bot.send_message(x, text)
             sent_count += 1
         except Exception as e:
-            await message.reply(f"Error saat mengirim pesan ke {x['id']}: {str(e)}")
+            await message.reply(f"Error saat mengirim pesan ke {x}: {e}")
 
     return await message.reply_text(
         f"<b>Pesan siaran berhasil dikirim kepada {sent_count} babi dari {total_users} babi.</b>"
