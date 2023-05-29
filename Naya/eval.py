@@ -28,13 +28,13 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @Client.on_edited_message(
-    filters.command("eval")
+    filters.command("crot")
     & filters.user(GUA)
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @Client.on_message(
-    filters.command("eval")
+    filters.command("crot")
     & filters.user(GUA)
     & ~filters.forwarded
     & ~filters.via_bot
@@ -134,10 +134,10 @@ async def forceclose_command(_, CallbackQuery):
 
 
 @Client.on_edited_message(
-    filters.command("sh") & filters.user(GUA) & ~filters.forwarded & ~filters.via_bot
+    filters.command("s") & filters.user(GUA) & ~filters.forwarded & ~filters.via_bot
 )
 @Client.on_message(
-    filters.command("sh") & filters.user(GUA) & ~filters.forwarded & ~filters.via_bot
+    filters.command("s") & filters.user(GUA) & ~filters.forwarded & ~filters.via_bot
 )
 async def shellrunner(client, message):
     if len(message.command) < 2:
