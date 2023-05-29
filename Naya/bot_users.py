@@ -1,6 +1,6 @@
 from pyrogram.types import Message
 from pyrogram import Client, filters
-
+from bot import app
 from .basic import GUA
 from .database.user import add_served_user, get_served_users
 
