@@ -2,7 +2,7 @@ from data import Data
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 from pyrogram.errors import *
-
+from .must_join import check_access
 
 def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
@@ -13,6 +13,7 @@ GUA = [1054295664, 1898065191]
 
 # Start Message
 @Client.on_message(filter("start"))
+@check_access
 async def start(bot: Client, msg: Message):
     user = await bot.get_me()
     mention = user.mention
