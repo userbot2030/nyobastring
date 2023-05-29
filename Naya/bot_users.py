@@ -53,9 +53,10 @@ async def bacot(bot: Client, message):
         )
     else:
         try:
-            await message.reply_text("**Bentar bang...**")
+            ajg = await message.reply_text("**Bentar bang...**")
             await asyncio.sleep(2)
-            await message.edit_text("✅ <b>Aku Berhasil Di Update.</b>")
+            await ajg.delete()
+            await message.reply_text("✅ <b>Aku Berhasil Di Update.</b>")
             os.execvp(sys.executable, [sys.executable, "bot.py"])
         except Exception as e:
             print(e)
