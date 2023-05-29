@@ -44,7 +44,7 @@ buttons_ques = [
 async def main(_, msg):
     await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
-@check_access
+
 async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
     if telethon:
         ty = "Telethon"
