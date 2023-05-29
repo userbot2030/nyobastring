@@ -4,3 +4,4 @@ pyromod==2.0.0
 Telethon==1.*
 TgCrypto
 pyrogram==2.*
+python3-dotenv
