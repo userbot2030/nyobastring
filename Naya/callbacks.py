@@ -3,10 +3,11 @@ from data import Data
 from pyrogram import Client
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
 from Naya.generate import generate_session, ask_ques, buttons_ques
-
+from .must_join import check_access
 
 # Callbacks
 @Client.on_callback_query()
+@check_access
 async def _callbacks(bot: Client, callback_query: CallbackQuery):
     user = await bot.get_me()
     # user_id = callback_query.from_user.id
