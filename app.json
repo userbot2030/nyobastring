@@ -17,14 +17,6 @@
       "size": "basic"
     }
   },
-  "addons": [
-      {
-         "options": {
-            "version": "12"
-         },
-         "plan": "heroku-postgresql"
-      }
-   ],
   "repository": "https://github.com/Onlymeriz/Session",
   "env": {
     "ENVIRONMENT": {
@@ -34,6 +26,11 @@
     },
     "API_ID": {
       "description": "Get this value from my.telegram.org.",
+      "required": true,
+      "value": ""
+    },
+    "MONGO_URL": {
+      "description": "Buat database.",
       "required": true,
       "value": ""
     },
