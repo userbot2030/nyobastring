@@ -38,12 +38,9 @@ async def bacot(bot: Client, message):
     total_users = len(babi)
     sent_count = 0
     for x in babi:
-        try:
-            await bot.send_message(x, text)
-            sent_count += 1
-        except Exception as e:
-            await message.reply(f"Error saat mengirim pesan ke {x}: {e}")
-
-    return await message.reply_text(
-        f"<b>Pesan siaran berhasil dikirim kepada {sent_count} babi dari {total_users} babi.</b>"
-    )
+    try:
+        await bot.send_message(x, text)
+        sent_count += 1
+    except Exception as e:
+        await message.reply(f"Error saat mengirim pesan ke {x} babi, Karena: {e}")
+    return await message.reply(f"Berhasil memotong {sent_count} babi, dari {total_users} babi.")
