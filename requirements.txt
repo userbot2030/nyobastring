@@ -5,4 +5,4 @@ Telethon==1.*
 TgCrypto
 pyrogram==2.*
 python-dotenv
-pyrogram1==0.1.0
+git+https://github.com/MR-CODER-V2/pyrogram-v1.4.16
