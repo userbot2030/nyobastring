@@ -57,4 +57,5 @@ async def bacot(bot: Client, message):
             await asyncio.sleep(2)
             await message.edit_text("✅ <b>Aku Berhasil Di Update.</b>")
             os.execvp(sys.executable, [sys.executable, "bot.py"])
-        
+        except Exception as e:
+            print(e)
