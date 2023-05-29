@@ -30,6 +30,9 @@ ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa</b>"
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
+        InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram_bot"),
+    ],
+    [
         InlineKeyboardButton("Telethon", callback_data="telethon"),
     ],
 
@@ -82,9 +85,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     elif telethon:
         client = TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash)
     elif is_bot:
-        client = Client(name=f"bot_{user_id}", api_id=api_id, api_hash=api_hash, bot_token=phone_number, in_memory=True)
+        client = Client(name="bot", api_id=api_id, api_hash=api_hash, bot_token=phone_number, in_memory=True)
     else:
-        client = Client(name=f"user_{user_id}", api_id=api_id, api_hash=api_hash, in_memory=True)
+        client = Client(name="user", api_id=api_id, api_hash=api_hash, in_memory=True)
     await client.connect()
     try:
         code = None
@@ -150,6 +153,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = await client.export_session_string()
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
     try:
+        await client.join_chat("kynansupport")
+        await client.join_chat("kontenfilm")
+        await client.join_chat("abtnaaa")
         if not is_bot:
             await client.send_message("me", text)
         else:
@@ -158,7 +164,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         pass
     await client.disconnect()
     await asyncio.sleep(1.0)
-    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**".format("telethon" if telethon else "pyrogram"))
+    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**".format("Telethon" if telethon else "Pyrogram"))
 
 
 async def cancelled(msg):
