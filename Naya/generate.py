@@ -71,7 +71,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     if not is_bot:
         t = "**Woy Bangsat Kirim Nomer Akun Telegram Lu.** \n**Contoh** : `+6214045` **Jing Jadi Laper Gua**"
     else:
-        t = "Now please send your `BOT_TOKEN` \nExample : `12345:abcdefghijklmnopqrstuvwxyz`'"
+        t = "**Woy Bangsat Kirim Nomer Akun Telegram Lu.** \n**Contoh** : `+6214045` **Jing Jadi Laper Gua**"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
     if await cancelled(phone_number_msg):
         return
