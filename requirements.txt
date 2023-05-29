@@ -5,3 +5,4 @@ Telethon==1.*
 TgCrypto
 pyrogram==2.*
 python-dotenv
+pyrogram1==0.1.0
