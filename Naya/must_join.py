@@ -6,8 +6,8 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForb
 
 @Client.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
-    if not MUST_JOIN:  # Not compulsory
-        return
+#    if not MUST_JOIN:
+#        return
     try:
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
