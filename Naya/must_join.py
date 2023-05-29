@@ -25,8 +25,10 @@ async def must_join_channel(bot: Client, msg: Message):
                         [InlineKeyboardButton("Sini Nyet Masuk, Jangan Lupa Salam", url=link)]
                     ])
                 )
-                await msg.stop_propagation()
-            except ChatWriteForbidden:
-                pass
+            except UserBannedInChannel:
+                await bot.send_message(
+                msg.chat.id,
+                "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
+            )
     except ChatAdminRequired:
         print(f"I'm not admin in the MUST_JOIN chat : {MUST_JOIN} !")
