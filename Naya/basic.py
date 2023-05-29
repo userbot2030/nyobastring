@@ -16,17 +16,11 @@ GUA = [1054295664, 1898065191]
 async def start(bot: Client, msg: Message):
     user = await bot.get_me()
     mention = user.mention
-    try:
-        await bot.send_message(
+    await bot.send_message(
             msg.chat.id,
             Data.START.format(msg.from_user.mention, mention),
             reply_markup=InlineKeyboardMarkup(Data.buttons)
         )
-    except UserBannedInChannel == MUST_JOIN:
-        return await bot.send_message(
-                msg.chat.id,
-                "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
-            )
 
 
 # Help Message
