@@ -38,7 +38,7 @@ def check_access(func):
         user_id = message.from_user.id
         nan = "-1001812143750"
         status = await client.get_chat_member(nan, user_id)
-        if status.status == ChatMember.STATUS_KICKED:
+        if status.status == UserBannedInChannel:
             await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\nSilakan contact @Kenapanan & @Rizzvbss untuk mendapatkan info dari Admin disana.")
             return
         await func(client, message)
