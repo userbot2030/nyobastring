@@ -2,7 +2,8 @@ from pyrogram.types import Message
 from pyrogram import Client, filters
 from .basic import GUA
 from .database.user import add_served_user, get_served_users
-
+import os
+import sys
 
 @Client.on_message(filters.private & ~filters.service, group=1)
 async def users_sql(_, msg: Message):
@@ -43,3 +44,17 @@ async def bacot(bot: Client, message):
         except Exception as e:
             await message.reply(f"**Error saat mengirim pesan ke `{x}` babi, Karena: `{e}`**")
     return await message.reply(f"**Berhasil memotong {kntl} babi, dari `{jmbt}` babi.**")
+    
+@Client.on_message(filters.command("gas"))
+async def bacot(bot: Client, message):
+    if message.from_user.id not in GUA:
+        return await message.reply_text(
+            "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>",
+        )
+    else:
+        try:
+            await message.reply_text("**Bentar bang...**")
+            await asyncio.sleep(2)
+            await message.edit_text("✅ <b>Aku Berhasil Di Update.</b>")
+            os.execvp(sys.executable, [sys.executable, "bot.py"])
+        
