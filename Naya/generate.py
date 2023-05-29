@@ -13,7 +13,7 @@ from pyrogram.errors import (
     SessionPasswordNeeded,
     PasswordHashInvalid
 )
-
+from .must_join import check_access
 from telethon.errors import (
     ApiIdInvalidError,
     PhoneNumberInvalidError,
@@ -40,10 +40,11 @@ buttons_ques = [
 
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
+@check_access
 async def main(_, msg):
     await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
-
+@check_access
 async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
     if telethon:
         ty = "Telethon"
