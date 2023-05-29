@@ -40,7 +40,7 @@ async def bacot(client, message):
     sent_count = 0
     for x in babi:
         try:
-            await bot.send_message(chat_id=x["id"], text=text)
+            await bot.send_message(x, text)
             sent_count += 1
         except Exception as e:
             await message.reply(f"Error saat mengirim pesan ke {x['id']}: {str(e)}")
