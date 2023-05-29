@@ -1,8 +1,7 @@
 from env import MUST_JOIN
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
-
+from pyrogram.types import *
+from pyrogram.errors import *
 
 @Client.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
@@ -32,3 +31,16 @@ async def must_join_channel(bot: Client, msg: Message):
             )
     except ChatAdminRequired:
         print(f"I'm not admin in the MUST_JOIN chat : {MUST_JOIN} !")
+        
+
+def check_access(func):
+    async def wrapper(client, message):
+        user_id = message.from_user.id
+        nan = "-1001812143750"
+        status = await client.get_chat_member(nan, user_id)
+        if status.status == ChatMember.STATUS_KICKED:
+            await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\nSilakan contact @Kenapanan & @Rizzvbss untuk mendapatkan info dari Admin disana.")
+            return
+        await func(client, message)
+
+    return wrapper
