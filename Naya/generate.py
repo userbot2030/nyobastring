@@ -14,7 +14,14 @@ from pyrogram.errors import (
     SessionPasswordNeeded,
     PasswordHashInvalid
 )
-
+from pyrogram.errors import (
+    ApiIdInvalid as ApiIdInvalid1,
+    PhoneNumberInvalid as PhoneNumberInvalid1,
+    PhoneCodeInvalid as PhoneCodeInvalid1,
+    PhoneCodeExpired as PhoneCodeExpired1,
+    SessionPasswordNeeded as SessionPasswordNeeded1,
+    PasswordHashInvalid as PasswordHashInvalid1
+)
 from .must_join import check_access
 from telethon.errors import (
     ApiIdInvalidError,
@@ -110,7 +117,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     #except (ApiIdInvalid, ApiIdInvalidError):
         #await msg.reply('`API_ID` and `API_HASH` combination is invalid. Please start generating session again.', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         #return
-    except (PhoneNumberInvalid, PhoneNumberInvalidError):
+    except (PhoneNumberInvalid, PhoneNumberInvalidError, PhoneNumberInvalid1):
         await msg.reply('**Nomer Akun Telegram Lu Ga Terdaftar Jink.**\n**Yang Bener Dikit Blog, Dari Ulang.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     try:
@@ -129,13 +136,13 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 await client.sign_in(phone_number, phone_code, password=None)
             else:
                 await client.sign_in(phone_number, code.phone_code_hash, phone_code)
-        except (PhoneCodeInvalid, PhoneCodeInvalidError):
+        except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1):
             await msg.reply('**Kode Nya Salah Monyet, Mata Lu Buta Apa Gimana.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
-        except (PhoneCodeExpired, PhoneCodeExpiredError):
+        except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
             await msg.reply('**Goblok, Dibilang Pake Spasi Tiap Kode.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
-        except (SessionPasswordNeeded, SessionPasswordNeededError):
+        except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1):
             try:
                 two_step_msg = await bot.ask(user_id, '**Masukin Password Akun Lu Jing.**', filters=filters.text, timeout=300)
             except TimeoutError:
@@ -150,7 +157,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                     await client.check_password(password=password)
                 if await cancelled(salah):
                     return
-            except (PasswordHashInvalid, PasswordHashInvalidError):
+            except (PasswordHashInvalid, PasswordHashInvalidError, PasswordHashInvalid1):
                 await two_step_msg.reply('**Lu Pikun Apa Gimana Si Nyet, Password Sendiri Salah.**', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
     else:
