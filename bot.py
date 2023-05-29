@@ -1,11 +1,16 @@
 import env
 import logging
 from pyrogram import Client, idle
+import time
+import logging
 from pyromod import listen  # type: ignore
 from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid
 
 
-logging.basicConfig(level=logging.INFO, encoding="utf-8", format="%(asctime)s - %(levelname)s - \033[32m%(pathname)s: \033[31m\033[1m%(message)s \033[0m")
+logging.basicConfig(
+    level=logging.WARNING, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+StartTime = time.time()
 
 app = Client(
     "Naya",
@@ -13,7 +18,7 @@ app = Client(
     api_hash=env.API_HASH,
     bot_token=env.BOT_TOKEN,
     in_memory=True,
-    plugins={'root':'Naya'},
+    plugins=dict(root="StringGenBot"),
 )
 
 
