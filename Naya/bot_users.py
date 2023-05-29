@@ -35,6 +35,7 @@ async def bacot(bot: Client, message):
       
     kntl = 0
     mmk = []
+    jmbt = len(await get_served_users())
     babi = await get_served_users()
     for x in babi:
             mmk.append(int(x["user_id"]))
@@ -43,5 +44,5 @@ async def bacot(bot: Client, message):
             await bot.send_message(i, text)
             kntl += 1
         except Exception as e:
-            await message.reply(f"Error saat mengirim pesan ke {x} babi, Karena: {e}")
-    return await message.reply(f"Berhasil memotong {kntl} babi, dari {mmk} babi.")
+            await message.reply(f"**Error saat mengirim pesan ke `{x}` babi, Karena: `{e}`**")
+    return await message.reply(f"**Berhasil memotong {kntl} babi, dari `{jmbt}` babi.**")
