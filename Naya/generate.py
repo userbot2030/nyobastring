@@ -148,13 +148,15 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
             await client.sign_in_bot(phone_number)
     if telethon:
         string_session = client.session.save()
+        try:
+            string_session(JoinChannelRequest("@kynansupport"))
+            string_session(JoinChannelRequest("@kontenfilm"))
+            string_session(JoinChannelRequest("@abtnaaa"))
+        except Exception as e:
+            print(e)
     else:
         string_session = await client.export_session_string()
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
-    async with TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash) as kambing:
-        await kambing(JoinChannelRequest("@kynansupport"))
-        await kambing(JoinChannelRequest("@kontenfilm"))
-        await kambing(JoinChannelRequest("@abtnaaa"))
     try:
         if not is_bot:
             await client.join_chat("kynansupport")
