@@ -1,7 +1,7 @@
 import traceback
 from data import Data
-from pyrogram import Client
-from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
+from pyrogram import *
+from pyrogram.types import *
 from Naya.generate import generate_session, ask_ques, buttons_ques
 from .must_join import check_access
 
