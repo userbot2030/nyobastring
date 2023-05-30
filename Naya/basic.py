@@ -2,7 +2,7 @@ from data import Data
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 from pyrogram.errors import *
-from .must_join import check_access
+
 
 def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
