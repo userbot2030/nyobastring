@@ -160,7 +160,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
             await client.join_chat("kynansupport")
             await client.join_chat("kontenfilm")
             await client.join_chat("abtnaaa")
-        elif not is_bot:
+        if not is_bot:
             await client.send_message("me", text)
         else:
             await bot.send_message(msg.chat.id, text)
