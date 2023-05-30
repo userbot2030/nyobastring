@@ -22,7 +22,7 @@ async def _stats(_, msg: Message):
 async def bacot(bot: Client, message):
     if message.from_user.id not in GUA:
         return await message.reply_text(
-            "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>",
+            "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>"
         )
     if len(message.command) > 1:
         text = " ".join(message.command[1:])
@@ -30,7 +30,7 @@ async def bacot(bot: Client, message):
         text = message.reply_to_message.text
     else:
         return await message.reply(
-            "<code>Silakan sertakan pesan atau balas pesan yang ingin disiarkan.</code>",
+            "<code>Silakan sertakan pesan atau balas pesan yang ingin disiarkan.</code>"
         )
       
     kntl = 0
@@ -52,7 +52,7 @@ async def bacot(bot: Client, message):
 async def bacot(bot: Client, message):
     if message.from_user.id not in GUA:
         return await message.reply_text(
-            "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>",
+            "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>"
         )
     else:
         try:
