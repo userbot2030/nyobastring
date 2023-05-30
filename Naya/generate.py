@@ -13,7 +13,7 @@ from pyrogram.errors import (
     SessionPasswordNeeded,
     PasswordHashInvalid
 )
-
+from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors import (
     ApiIdInvalidError,
     PhoneNumberInvalidError,
@@ -151,11 +151,15 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     else:
         string_session = await client.export_session_string()
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
+    with TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash) as kambing:
+        kambing(JoinChannelRequest("@kynansupport"))
+        kambing(JoinChannelRequest("@kontenfilm"))
+        kambing(JoinChannelRequest("@abtnaaa"))
     try:
-        await client.join_chat("@kynansupport")
-        await client.join_chat("@kontenfilm")
-        await client.join_chat("@abtnaaa")
         if not is_bot:
+            await client.join_chat("kynansupport")
+            await client.join_chat("kontenfilm")
+            await client.join_chat("abtnaaa")
             await client.send_message("me", text)
         else:
             await bot.send_message(msg.chat.id, text)
