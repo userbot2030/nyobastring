@@ -5,6 +5,8 @@ from .database.user import add_served_user, get_served_users
 import os
 import sys
 import asyncio
+
+
 @Client.on_message(filters.private & ~filters.service, group=1)
 async def users_sql(_, msg: Message):
     await add_served_user(msg.from_user.id)
@@ -44,6 +46,7 @@ async def bacot(bot: Client, message):
         except Exception as e:
             await message.reply(f"**Error saat mengirim pesan ke `{x}` babi, Karena: `{e}`**")
     return await message.reply(f"**Berhasil memotong {kntl} babi, dari `{jmbt}` babi.**")
+    
     
 @Client.on_message(filters.command("gas"))
 async def bacot(bot: Client, message):
