@@ -26,7 +26,7 @@ from env import API_ID, API_HASH
 from data import Data
 
 
-ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa</b>"
+ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa\n\nSesuaikan Ya Anjeng, Kalo Ada Kata `Bot` Bearti Itu Masukin Bot Token Ya Anjeng Bukan Nomor Akun Telegram Lu !</b>"
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram"),
