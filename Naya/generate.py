@@ -2,7 +2,7 @@ import asyncio
 from telethon import TelegramClient
 from pyrogram.types import Message
 from pyrogram import Client, filters
-from pyrogram import Client as Client1
+from pyrogram1 import Client as Client1
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -14,7 +14,7 @@ from pyrogram.errors import (
     SessionPasswordNeeded,
     PasswordHashInvalid
 )
-from pyrogram.errors import (
+from pyrogram1.errors import (
     ApiIdInvalid as ApiIdInvalid1,
     PhoneNumberInvalid as PhoneNumberInvalid1,
     PhoneCodeInvalid as PhoneCodeInvalid1,
