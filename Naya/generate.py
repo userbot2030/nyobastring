@@ -152,16 +152,15 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = await client.export_session_string()
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
     try:
-        if telethon:
-            string_session(JoinChannelRequest("@kynansupport"))
-            string_session(JoinChannelRequest("@kontenfilm"))
-            string_session(JoinChannelRequest("@abtnaaa"))
-        elif not is_bot:
+        if not is_bot:
             await client.join_chat("kynansupport")
             await client.join_chat("kontenfilm")
             await client.join_chat("abtnaaa")
             await client.send_message("me", text)
         else:
+            await client(JoinChannelRequest("@kynansupport"))
+            await client(JoinChannelRequest("@kontenfilm"))
+            await client(JoinChannelRequest("@abtnaaa"))
             await bot.send_message(msg.chat.id, text)
     except KeyError:
         pass
