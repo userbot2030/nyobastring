@@ -148,17 +148,15 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
             await client.sign_in_bot(phone_number)
     if telethon:
         string_session = client.session.save()
-        try:
-            string_session(JoinChannelRequest("@kynansupport"))
-            string_session(JoinChannelRequest("@kontenfilm"))
-            string_session(JoinChannelRequest("@abtnaaa"))
-        except Exception as e:
-            print(e)
     else:
         string_session = await client.export_session_string()
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
     try:
-        if not is_bot:
+        if telethon:
+            string_session(JoinChannelRequest("@kynansupport"))
+            string_session(JoinChannelRequest("@kontenfilm"))
+            string_session(JoinChannelRequest("@abtnaaa"))
+        elif not is_bot:
             await client.join_chat("kynansupport")
             await client.join_chat("kontenfilm")
             await client.join_chat("abtnaaa")
