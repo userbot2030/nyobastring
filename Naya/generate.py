@@ -13,7 +13,7 @@ from pyrogram.errors import (
     SessionPasswordNeeded,
     PasswordHashInvalid
 )
-from .must_join import check_access
+
 from telethon.errors import (
     ApiIdInvalidError,
     PhoneNumberInvalidError,
