@@ -3,7 +3,7 @@ from data import Data
 from pyrogram import *
 from pyrogram.types import *
 from Naya.generate import generate_session, ask_ques, buttons_ques
-from .must_join import check_access
+
 
 # Callbacks
 @Client.on_callback_query(filters.regex(pattern=r"^(generate|pyrogram|pyrogram1|pyrogram_bot|telethon_bot|telethon)$"))
