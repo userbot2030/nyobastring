@@ -19,7 +19,7 @@ async def _stats(_, msg: Message):
 
 
 @Client.on_message(filters.command("bacot"))
-async def bacot(bot: Client, message):
+async def _bacot(bot: Client, message):
     if message.from_user.id not in GUA:
         return await message.reply_text(
             "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>"
@@ -49,7 +49,7 @@ async def bacot(bot: Client, message):
     
     
 @Client.on_message(filters.command("gas"))
-async def bacot(bot: Client, message):
+async def _gas(bot: Client, message):
     if message.from_user.id not in GUA:
         return await message.reply_text(
             "<b>LU SIAPA MONYED, BABI, BANGSAT, KONTOL, MMK, PELER KUDA, SEMPAK KADAL, KANCUT FIR'AUN,DAKI GORILA, UPIL JERAPA, JEMBUD SINGA, TOPENG MONYET, SOFTEX KUNTILANAK, KOLOR POCONG, POPOK TUYUL, JIGONG GENDERUWO.</b>"
