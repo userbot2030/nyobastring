@@ -6,9 +6,9 @@ from Naya.generate import generate_session, ask_ques, buttons_ques
 from .must_join import check_access
 
 # Callbacks
-@Client.on_callback_query()
-@check_access
+@Client.on_callback_query(filters.regex(pattern=r"^(generate|pyrogram|pyrogram1|pyrogram_bot|telethon_bot|telethon)$"))
 async def _callbacks(bot: Client, callback_query: CallbackQuery):
+    query = callback_query.matches[0].group(1)
     user = await bot.get_me()
     # user_id = callback_query.from_user.id
     mention = user.mention
