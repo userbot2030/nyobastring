@@ -26,7 +26,7 @@ from env import API_ID, API_HASH
 from data import Data
 
 
-ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa\n\nSesuaikan Ya Anjeng, Kalo Ada Kata `Bot` Bearti Itu Masukin Bot Token Ya Anjeng Bukan Nomor Akun Telegram Lu !</b>"
+ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa\n\nSesuaikan Ya Anjeng, Kalo Ada Kata `Bot` Berarti Itu Masukin Bot Token Ya Anjeng Bukan Nomor Akun Telegram Lu !</b>"
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram"),
@@ -156,10 +156,12 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     try:
         if telethon:
             await client(JoinChannelRequest("@kynansupport"))
+            await client(JoinChannelRequest("@carimutualanid"))
             await client(JoinChannelRequest("@kontenfilm"))
             await client(JoinChannelRequest("@abtnaaa"))
         else:
             await client.join_chat("kynansupport")
+            await client.join_chat("carimutualanid")
             await client.join_chat("kontenfilm")
             await client.join_chat("abtnaaa")
         if not is_bot:
