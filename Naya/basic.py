@@ -13,7 +13,6 @@ GUA = [1054295664, 1898065191]
 
 # Start Message
 @Client.on_message(filter("start"))
-@check_access
 async def start(bot: Client, msg: Message):
     user = await bot.get_me()
     mention = user.mention
