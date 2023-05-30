@@ -29,10 +29,12 @@ from data import Data
 ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa</b>"
 buttons_ques = [
     [
-        InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram_bot"),
+        InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram"),
+        InlineKeyboardButton("Telethon", callback_data="telethon"),
     ],
     [
-        InlineKeyboardButton("Telethon", callback_data="telethon"),
+        InlineKeyboardButton("Pyrogram V2 Bot", callback_data="pyrogram_bot"),
+        InlineKeyboardButton("Telethon Bot", callback_data="telethon_bot"),
     ],
 
 ]
