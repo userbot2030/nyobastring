@@ -2,7 +2,6 @@ import asyncio
 from telethon import TelegramClient
 from pyrogram.types import Message
 from pyrogram import Client, filters
-from pyrogram1 import Client as Client1
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -13,14 +12,6 @@ from pyrogram.errors import (
     PhoneCodeExpired,
     SessionPasswordNeeded,
     PasswordHashInvalid
-)
-from pyrogram1.errors import (
-    ApiIdInvalid as ApiIdInvalid1,
-    PhoneNumberInvalid as PhoneNumberInvalid1,
-    PhoneCodeInvalid as PhoneCodeInvalid1,
-    PhoneCodeExpired as PhoneCodeExpired1,
-    SessionPasswordNeeded as SessionPasswordNeeded1,
-    PasswordHashInvalid as PasswordHashInvalid1
 )
 from .must_join import check_access
 from telethon.errors import (
@@ -38,33 +29,26 @@ from data import Data
 ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa</b>"
 buttons_ques = [
     [
-        InlineKeyboardButton("Pyrogram", callback_data="pyrogram1"),
-        InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram"),
+        InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
+        InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram_bot"),
     ],
     [
         InlineKeyboardButton("Telethon", callback_data="telethon"),
-    ],
-    [
-        InlineKeyboardButton("Pyrogram Bot", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("Telethon Bot", callback_data="telethon_bot"),
     ],
 
 ]
 
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
-@check_access
 async def main(_, msg):
     await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
 
-async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: bool = False, is_bot: bool = False):
+async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bool = False):
     if telethon:
         ty = "Telethon"
     else:
-        ty = "Pyrogram"
-        if not old_pyro:
-            ty += " V2"
+        ty = "Pyrogram v2"
     if is_bot:
         ty += " Bot"
     user_id = msg.chat.id
@@ -102,8 +86,6 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         client = TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash)
     elif is_bot:
         client = Client(name="bot", api_id=api_id, api_hash=api_hash, bot_token=phone_number, in_memory=True)
-    elif old_pyro:
-        client = Client1(":memory:", api_id=api_id, api_hash=api_hash)
     else:
         client = Client(name="user", api_id=api_id, api_hash=api_hash, in_memory=True)
     await client.connect()
@@ -117,7 +99,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
     #except (ApiIdInvalid, ApiIdInvalidError):
         #await msg.reply('`API_ID` and `API_HASH` combination is invalid. Please start generating session again.', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         #return
-    except (PhoneNumberInvalid, PhoneNumberInvalidError, PhoneNumberInvalid1):
+    except (PhoneNumberInvalid, PhoneNumberInvalidError):
         await msg.reply('**Nomer Akun Telegram Lu Ga Terdaftar Jink.**\n**Yang Bener Dikit Blog, Dari Ulang.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     try:
@@ -136,13 +118,13 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                 await client.sign_in(phone_number, phone_code, password=None)
             else:
                 await client.sign_in(phone_number, code.phone_code_hash, phone_code)
-        except (PhoneCodeInvalid, PhoneCodeInvalidError, PhoneCodeInvalid1):
+        except (PhoneCodeInvalid, PhoneCodeInvalidError):
             await msg.reply('**Kode Nya Salah Monyet, Mata Lu Buta Apa Gimana.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
-        except (PhoneCodeExpired, PhoneCodeExpiredError, PhoneCodeExpired1):
+        except (PhoneCodeExpired, PhoneCodeExpiredError):
             await msg.reply('**Goblok, Dibilang Pake Spasi Tiap Kode.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
-        except (SessionPasswordNeeded, SessionPasswordNeededError, SessionPasswordNeeded1):
+        except (SessionPasswordNeeded, SessionPasswordNeededError):
             try:
                 two_step_msg = await bot.ask(user_id, '**Masukin Password Akun Lu Jing.**', filters=filters.text, timeout=300)
             except TimeoutError:
@@ -157,7 +139,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                     await client.check_password(password=password)
                 if await cancelled(salah):
                     return
-            except (PasswordHashInvalid, PasswordHashInvalidError, PasswordHashInvalid1):
+            except (PasswordHashInvalid, PasswordHashInvalidError):
                 await two_step_msg.reply('**Lu Pikun Apa Gimana Si Nyet, Password Sendiri Salah.**', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
     else:
@@ -171,10 +153,10 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         string_session = await client.export_session_string()
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
     try:
+        await client.join_chat("kynansupport")
+        await client.join_chat("kontenfilm")
+        await client.join_chat("abtnaaa")
         if not is_bot:
-            await client.join_chat("kynansupport")
-            await client.join_chat("kontenfilm")
-            await client.join_chat("abtnaaa")
             await client.send_message("me", text)
         else:
             await bot.send_message(msg.chat.id, text)
