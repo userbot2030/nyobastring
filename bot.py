@@ -29,8 +29,7 @@ async def main():
         raise Exception("Your API_ID/API_HASH is not valid.")
     except AccessTokenInvalid:
         raise Exception("Your BOT_TOKEN is not valid.")
-    uname = app.username
-    print(f"@{uname} started successfully !")
+    print(f"Bot started successfully !")
     idle()
     app.stop()
     print("Bot stopped. Bye !")
