@@ -24,14 +24,14 @@ app = Client(
 async def main():
     logging.info("Starting the bot")
     try:
-        app.start()
+        await app.start()
     except (ApiIdInvalid, ApiIdPublishedFlood):
         raise Exception("Your API_ID/API_HASH is not valid.")
     except AccessTokenInvalid:
         raise Exception("Your BOT_TOKEN is not valid.")
     print(f"Bot started successfully !")
-    idle()
-    app.stop()
+    await idle()
+    await app.stop()
     print("Bot stopped. Bye !")
 
 if __name__ == "__main__":
