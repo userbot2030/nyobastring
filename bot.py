@@ -5,7 +5,7 @@ import time
 import logging
 from pyromod import listen  # type: ignore
 from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid
-
+import asyncio
 
 logging.basicConfig(
     level=logging.WARNING, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
@@ -21,8 +21,7 @@ app = Client(
     plugins=dict(root="Naya"),
 )
 
-
-if __name__ == "__main__":
+async def main():
     logging.info("Starting the bot")
     try:
         app.start()
@@ -35,3 +34,9 @@ if __name__ == "__main__":
     idle()
     app.stop()
     print("Bot stopped. Bye !")
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop_policy()
+    event_loop = loop.get_event_loop()
+    asyncio.set_event_loop(event_loop)
+    event_loop.run_until_complete(main())
