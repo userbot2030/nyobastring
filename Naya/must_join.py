@@ -5,8 +5,10 @@ from pyrogram.errors import *
 
 @Client.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
-    if not MUST_JOIN:
-        return
+    if UserBannedInChannel:
+      await bot.send_message(msg.chat.id, "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
+            )
+      return
     try:
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
