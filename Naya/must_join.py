@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.types import *
 from pyrogram.errors import *
 
-@Client.on_message(filters.incoming & filters.private, group=-1)
+@Client.on_message(filters.incoming & filters.private, group=1)
 async def must_join_channel(bot: Client, msg: Message):
     if UserBannedInChannel:
       await bot.send_message(msg.chat.id, "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
@@ -12,7 +12,7 @@ async def must_join_channel(bot: Client, msg: Message):
     try:
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
-        except UserNotParticipant:
+        except (UserNotParticipant, UserBannedInChannel):
             if MUST_JOIN.isalpha():
                 link = "https://t.me/" + MUST_JOIN
             else:
