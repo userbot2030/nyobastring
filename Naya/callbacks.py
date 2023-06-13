@@ -8,7 +8,7 @@ from Naya.generate import generate_session, ask_ques, buttons_ques
 # Callbacks
 @Client.on_callback_query()
 async def _callbacks(bot: Client, callback_query: CallbackQuery):
-    query = callback_query.matches[0].group(1)
+    query = callback_query.data.lower()
     user = await bot.get_me()
     # user_id = callback_query.from_user.id
     mention = user.mention
