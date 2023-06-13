@@ -8,7 +8,7 @@ API_HASH = getenv("API_HASH", "0f8f66b06b1c53b9263bcfb1123e9c85")
 BOT_TOKEN = getenv("BOT_TOKEN", "5688352753:AAFAE75kCKzrkueAX3WPvPRi-H8BmZZavNs")
 
 MUST_JOIN = getenv("MUST_JOIN", "kazusupportgrp")
-MONGO_URL = getenv("MONGO_URL")
+MONGO_URL = getenv("MONGO_URL", "mongodb+srv://dxnfkke049:riyon@cluster0.wc0ll9a.mongodb.net/?retryWrites=true&w=majority")
 
 
 if not API_ID:
