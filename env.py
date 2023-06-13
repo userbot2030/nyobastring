@@ -3,11 +3,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", ""))
-API_HASH = getenv("API_HASH", "")
-BOT_TOKEN = getenv("BOT_TOKEN", "")
+API_ID = int(getenv("API_ID", "22156937"))
+API_HASH = getenv("API_HASH", "0f8f66b06b1c53b9263bcfb1123e9c85")
+BOT_TOKEN = getenv("BOT_TOKEN", "5688352753:AAFAE75kCKzrkueAX3WPvPRi-H8BmZZavNs")
 
-MUST_JOIN = getenv("MUST_JOIN", "kynansupport")
+MUST_JOIN = getenv("MUST_JOIN", "kazusupportgrp")
 MONGO_URL = getenv("MONGO_URL")
 
 
