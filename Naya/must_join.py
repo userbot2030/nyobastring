@@ -3,22 +3,21 @@ from pyrogram import Client, filters
 from pyrogram.types import *
 from pyrogram.errors import *
 
+MUST_JOIN = "https://t.me/kazusupportgrp"
+
 @Client.on_message(filters.incoming & filters.private, group=1)
 async def must_join_channel(bot: Client, msg: Message):
     if UserBannedInChannel:
-      await bot.send_message(msg.chat.id, "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
-            )
-      return
+      
     try:
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
-        except (UserNotParticipant, UserBannedInChannel):
-            if MUST_JOIN.isalpha():
-                link = "https://t.me/" + MUST_JOIN
-            else:
+        except UserBannedInChannel:
+            return await bot.send_message(msg.chat.id, "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
+            )
+            try:
                 chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
-            try:
                 await msg.reply(
                     f"Si Anjeng, Masuk Sini Dulu Lu Bangsat !",
                     disable_web_page_preview=True,
