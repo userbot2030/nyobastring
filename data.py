@@ -13,12 +13,12 @@ class Data:
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("Owner", url="https://t.me/Rizzvbss")],
+        [InlineKeyboardButton("Owner", user_id=5063062493)],
         [
             InlineKeyboardButton("Bantuan", callback_data="help"),
             InlineKeyboardButton("Tentang Saya", callback_data="about")
         ],
-        [InlineKeyboardButton("Support", url="https://t.me/kynansupport")],
+        [InlineKeyboardButton("Support", url="https://t.me/kazusupportgrp")],
     ]
 
     START = """
@@ -45,11 +45,11 @@ Buat Lu ID 5 atau ID 6 yang Baru Maen Telegram**
     ABOUT = """
 **Tentang Saya** 
 
-**Saya Dibuat Oleh [Kynan](https://t.me/rizzvbss)
+**Saya Dibuat Oleh [Kazu](https://t.me/disinikazu)
 
 Buat Lu Yang Baru Maen Tele Ya Anjeng..**
 
 Cuma Modal Copas Ya Anjeng, Gua Bukan ProDev Ya Bangsat
 
-Maintainer : @Rizzvbss**
+Maintainer : @disinikazu**
     """
