@@ -13,7 +13,7 @@ logging.basicConfig(
 StartTime = time.time()
 
 app = Client(
-    "Naya",
+    "sesi",
     api_id=env.API_ID,
     api_hash=env.API_HASH,
     bot_token=env.BOT_TOKEN,
