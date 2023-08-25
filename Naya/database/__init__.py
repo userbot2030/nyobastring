@@ -1,7 +1,7 @@
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 
-import env
+import config
 
 
-mongo = MongoCli(env.MONGO_URL)
+mongo = MongoCli(config.MONGO_URL)
 db = mongo.NayaString

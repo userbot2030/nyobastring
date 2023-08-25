@@ -1,4 +1,4 @@
-from env import MUST_JOIN
+from config import MUST_JOIN
 from pyrogram import Client, filters
 from pyrogram.types import *
 from pyrogram.errors import *

@@ -13,6 +13,28 @@ Channel :- [Iya Gabut](https://t.me/kontenfilm)
 
 Group Chat :- [Kynan Support](https://t.me/kynansupport)
 
-### Heroku
+<details>
+<summary><b>🔗 Deploy di VPS</b></summary>
+<br>
+
+ • `git clone https://github.com/naya1503/Session`
+
+ • `cd Session`
+
+ • `cp .config.sample .env`
+
+ • `nano .env`
+
+ • `screen -S naya`
+
+ • `bash start`
+
+</details>
+
+<details>
+<summary><b>🔗 Deploy Via Docker</b></summary>
+<br>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/naya1503/Session)
+
+</details>
