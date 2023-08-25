@@ -17,7 +17,7 @@
       "size": "basic"
     }
   },
-  "repository": "https://github.com/Onlymeriz/Session",
+  "repository": "https://github.com/naya1503/Session",
   "env": {
     "ENVIRONMENT": {
       "description": "Don't change ANYTHING.",
