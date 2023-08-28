@@ -30,7 +30,7 @@
       "value": ""
     },
     "OWNER_ID": {
-      "description": "Your ID."
+      "description": "Your ID.",
       "required": true,
       "value": ""
     },
@@ -40,27 +40,27 @@
       "value": ""
     },
     "JOIN1": {
-      "description": "Isi Username nya gausah pake https segala."
+      "description": "Isi Username nya gausah pake https segala.",
       "required": true,
       "value": ""
     },
     "JOIN2": {
-      "description": "Isi Username nya gausah pake https segala."
+      "description": "Isi Username nya gausah pake https segala.",
       "required": true,
       "value": ""
     },
     "JOIN3": {
-      "description": "Isi Username nya gausah pake https segala."
+      "description": "Isi Username nya gausah pake https segala.",
       "required": true,
       "value": ""
     },
     "JOIN4": {
-      "description": "Isi Username nya gausah pake https segala."
+      "description": "Isi Username nya gausah pake https segala.",
       "required": true,
       "value": ""
     },
     "SUPPORT": {
-      "description": "Isi Username nya gausah pake https segala."
+      "description": "Isi Username nya gausah pake https segala.",
       "required": true,
       "value": ""
     },
