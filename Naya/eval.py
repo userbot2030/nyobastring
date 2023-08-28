@@ -10,7 +10,7 @@ from time import time
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from .basic import GUA
+from config import *
 
 
 async def aexec(code, client, message):
@@ -29,13 +29,13 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 @Client.on_edited_message(
     filters.command("crot")
-    & filters.user(GUA)
+    & filters.user(OWNER_ID)
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @Client.on_message(
     filters.command("crot")
-    & filters.user(GUA)
+    & filters.user(OWNER_ID)
     & ~filters.forwarded
     & ~filters.via_bot
 )
@@ -134,10 +134,10 @@ async def forceclose_command(_, CallbackQuery):
 
 
 @Client.on_edited_message(
-    filters.command("s") & filters.user(GUA) & ~filters.forwarded & ~filters.via_bot
+    filters.command("s") & filters.user(OWNER_ID) & ~filters.forwarded & ~filters.via_bot
 )
 @Client.on_message(
-    filters.command("s") & filters.user(GUA) & ~filters.forwarded & ~filters.via_bot
+    filters.command("s") & filters.user(OWNER_ID) & ~filters.forwarded & ~filters.via_bot
 )
 async def shellrunner(client, message):
     if len(message.command) < 2:
