@@ -3,8 +3,6 @@ from pyrogram import Client, filters
 from pyrogram.types import *
 from pyrogram.errors import *
 
-MUST_JOIN = "https://t.me/kazusupportgrp"
-
 @Client.on_message(filters.incoming & filters.private, group=1)
 async def must_join_channel(bot: Client, msg: Message):
     #if UserBannedInChannel:
