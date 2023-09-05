@@ -32,7 +32,7 @@ Group Chat :- [Kynan Support](https://t.me/kynansupport)
 </details>
 
 <details>
-<summary><b>🔗 Deploy Via Docker</b></summary>
+<summary><b>🔗 Deploy Heroku</b></summary>
 <br>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/naya1503/Session)
