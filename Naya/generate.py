@@ -43,7 +43,7 @@ buttons_ques = [
 
 admin_kynan = [
     [
-      InlineKeyboardButton(text="👮‍♂ Owner", user_id=OWNER_ID),
+      InlineKeyboardButton(text="👮‍♂ Owner", user_id=f"{OWNER_ID}"),
     ],
   ]
 
