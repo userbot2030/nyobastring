@@ -14,7 +14,7 @@ class Data:
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("Owner", user_id=OWNER_ID)],
+        [InlineKeyboardButton("Owner", user_id=f"{OWNER_ID}")],
         [
             InlineKeyboardButton("Bantuan", callback_data="help"),
             InlineKeyboardButton("Tentang Saya", callback_data="about")
