@@ -11,23 +11,23 @@ async def must_join_channel(bot: Client, msg: Message):
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserBannedInChannel:
-            return await bot.send_message(msg.chat.id, "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
+            return await bot.send_message(msg.chat.id, "**Mᴀᴀғ, Aɴᴅᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ ɪɴɪ ᴋᴀʀᴇɴᴀ ᴀɴᴅᴀ ᴅɪ ʙᴀɴɴᴇᴅ ᴅᴀʀɪ ʙᴇʀʟɪɴ Sᴜᴘᴘᴏʀᴛ**\n**sɪʟᴀᴋᴀɴ ᴄᴏɴᴛᴀᴄᴛ @Foundermidnight ᴀɢᴀʀ ᴅɪʙᴜᴋᴀ ʙʟᴏᴋɪʀ ᴀɴᴅᴀ.**"
             )
             try:
                 chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
                 await msg.reply(
-                    f"Si Anjeng, Masuk Sini Dulu Lu Bangsat !",
+                    f"sɪ ᴀɴᴊᴇɴɢ, ᴍᴀsᴜᴋ sɪɴɪ ᴅᴜʟᴜ ʟᴜ ʙᴀɴɢsᴀᴛ !",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("Sini Nyet Masuk, Jangan Lupa Salam", url=link)]
+                        [InlineKeyboardButton("sɪɴɪ ɴʏᴇᴛ ᴍᴀsᴜᴋ, ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ sᴀʟᴀᴍ", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
             except UserBannedInChannel:
                 await bot.send_message(
                 msg.chat.id,
-                "**Maaf, Anda tidak dapat menggunakan bot ini karena anda di banned dari Kynan Support**\n**Silakan contact @Rizzvbss agar dibuka blokir anda.**"
+                "**Mᴀᴀғ, Aɴᴅᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ ɪɴɪ ᴋᴀʀᴇɴᴀ ᴀɴᴅᴀ ᴅɪ ʙᴀɴɴᴇᴅ ᴅᴀʀɪ ʙᴇʀʟɪɴ Sᴜᴘᴘᴏʀᴛ**\n**sɪʟᴀᴋᴀɴ ᴄᴏɴᴛᴀᴄᴛ @Foundermidnight ᴀɢᴀʀ ᴅɪʙᴜᴋᴀ ʙʟᴏᴋɪʀ ᴀɴᴅᴀ.**"
             )
     except ChatAdminRequired:
         print(f"I'm not admin in the MUST_JOIN chat : {MUST_JOIN} !")
