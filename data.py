@@ -3,33 +3,33 @@ from config import *
 
 
 class Data:
-    generate_single_button = [InlineKeyboardButton(" Mulai Ambil String ", callback_data="generate")]
+    generate_single_button = [InlineKeyboardButton(" ᴍᴜʟᴀɪ ᴀᴍʙɪʟ sᴛʀɪɴɢ ", callback_data="generate")]
 
     home_buttons = [
         generate_single_button,
-        [InlineKeyboardButton(text=" Kembali ", callback_data="home")]
+        [InlineKeyboardButton(text=" ᴋᴇᴍʙᴀʟɪ ", callback_data="home")]
     ]
 
     generate_button = [generate_single_button]
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("Owner", user_id=f"{OWNER_ID}")],
+        [InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=f"{OWNER_ID}")],
         [
-            InlineKeyboardButton("Bantuan", callback_data="help"),
-            InlineKeyboardButton("Tentang Saya", callback_data="about")
+            InlineKeyboardButton("ʙᴀɴᴛᴜᴀɴ", callback_data="help"),
+            InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data="about")
         ],
-        [InlineKeyboardButton("Support", url=f"https://t.me/{SUPPORT}")],
+        [InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT}")],
     ]
 
     START = """
-**Woy Anjeng** {}
+**ᴡᴏʏ ᴀɴᴊᴇɴɢ** {}
 
-**Selamat Datang Di** {}
+**sᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ ᴅɪ** {}
 
-**Ini Adalah Bot String Session Anti Deak Ya Bangsat
+**ɪɴɪ ᴀᴅᴀʟᴀʜ ʙᴏᴛ sᴛʀɪɴɢ sᴇssɪᴏɴ ᴀɴᴛɪ ᴅᴇᴀᴋ ʏᴀ ʙᴀɴɢsᴀᴛ
 
-Buat Lu ID 5 atau ID 6 yang Baru Maen Telegram**
+ɪɴɪ ᴀᴅᴀʟᴀʜ ʙᴏᴛ sᴛʀɪɴɢ sᴇssɪᴏɴ ᴀɴᴛɪ ᴅᴇᴀᴋ ʏᴀ ʙᴀɴɢsᴀᴛ**
     """
 
     HELP = """
@@ -44,11 +44,11 @@ Buat Lu ID 5 atau ID 6 yang Baru Maen Telegram**
 """
 
     ABOUT = """
-**Tentang Saya** 
+**ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ** 
 
-**Buat Lu Yang Baru Maen Tele Ya Anjeng..**
+**ʙᴜᴀᴛ ʟᴜ ʏᴀɴɢ ʙᴀʀᴜ ᴍᴀᴇɴ ᴛᴇʟᴇ ʏᴀ ᴀɴᴊᴇɴɢ..**
 
-Cuma Modal Copas Ya Anjeng, Gua Bukan ProDev Ya Bangsat
+ᴄᴜᴍᴀ ᴍᴏᴅᴀʟ ᴄᴏᴘᴀs ʏᴀ ᴀɴᴊᴇɴɢ, ɢᴜᴀ ʙᴜᴋᴀɴ ᴘʀᴏᴅᴇᴠ ʏᴀ ʙᴀɴɢsᴀᴛ
 
-Maintainer : @kenapanan**
+ᴍᴀɪɴᴛᴀɪɴᴇʀ : @Foundermidnight**
     """
