@@ -17,7 +17,7 @@ Group Chat :- [Kynan Support](https://t.me/kynansupport)
 <summary><b>🔗 Deploy di VPS</b></summary>
 <br>
 
- • `git clone https://github.com/naya1503/Session`
+ • `git clone https://github.com/kansya-nt/nyobastring`
 
  • `cd Session`
 
