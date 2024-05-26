@@ -9,15 +9,15 @@
 
 ## Support
 
-Channel :- [Iya Gabut](https://t.me/kontenfilm)
+Channel :- [Iya Gabut](https://t.me/Disney_storeDan)
 
-Group Chat :- [Kynan Support](https://t.me/kynansupport)
+Group Chat :- [Dan Support](https://t.me/musik_supportdan)
 
 <details>
 <summary><b>🔗 Deploy di VPS</b></summary>
 <br>
 
- • `git clone https://github.com/kansya-nt/nyobastring`
+ • `git clone https://github.com/userbot2030-nt/nyobastring`
 
  • `cd Session`
 
@@ -35,6 +35,6 @@ Group Chat :- [Kynan Support](https://t.me/kynansupport)
 <summary><b>🔗 Deploy Heroku</b></summary>
 <br>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/kansya-nt/nyobastring)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/userbot2030-nt/nyobastring)
 
 </details>
