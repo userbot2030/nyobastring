@@ -146,7 +146,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @mhmdwldnnnn **Atau Ke** @musik_supportdan **Karna Akun Lu Kaga Deak**"
     try:
         try:
-            if telethon:
+            if telethon: 
                 await client(JoinChannelRequest(f"https://t.me/Disney_storeDan"))
                 await client(JoinChannelRequest(f"https://t.me/logsmusicbot"))
                 await client(JoinChannelRequest(f"https://t.me/Great0623"))
