@@ -27,7 +27,7 @@ async def must_join_channel(bot: Client, msg: Message):
             except UserBannedInChannel:
                 await bot.send_message(
                 msg.chat.id,
-                "**Mᴀᴀғ, Aɴᴅᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ ɪɴɪ ᴋᴀʀᴇɴᴀ ᴀɴᴅᴀ ᴅɪ ʙᴀɴɴᴇᴅ ᴅᴀʀɪ ᴍᴜsɪᴄ Sᴜᴘᴘᴏʀᴛ**\n**sɪʟᴀᴋᴀɴ ᴄᴏɴᴛᴀᴄᴛ @mhmdwldnnnn ᴀɢᴀʀ ᴅɪʙᴜᴋᴀ ʙʟᴏᴋɪʀ ᴀɴᴅᴀ.**"
+                "**Mᴀᴀғ, Aɴᴅᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ ɪɴɪ ᴋᴀʀᴇɴᴀ ᴀɴᴅᴀ ᴅɪ ʙᴀɴɴᴇᴅ ᴅᴀʀɪ ᴍᴜsɪᴄ Sᴜᴘᴘᴏʀᴛ**\n**sɪʟᴀᴋᴀɴ ᴄᴏɴᴛᴀᴄᴛ @ ᴀɢᴀʀ ᴅɪʙᴜᴋᴀ ʙʟᴏᴋɪʀ ᴀɴᴅᴀ.**"
             )
     except ChatAdminRequired:
         print(f"I'm not admin in the MUST_JOIN chat : {MUST_JOIN} !")
