@@ -14,7 +14,7 @@ class Data:
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=f"https://t.me/mhmdwldnnnn")],
+        [InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=f"5779185981")],
         [
             InlineKeyboardButton("ʙᴀɴᴛᴜᴀɴ", callback_data="help"),
             InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data="about")
