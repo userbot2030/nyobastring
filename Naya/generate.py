@@ -43,7 +43,7 @@ buttons_ques = [
 
 admin_kynan = [
     [
-      InlineKeyboardButton(text="👮‍♂ Owner", user_id=f"5779185981"),
+      InlineKeyboardButton(text="👮‍♂ Owner", user_id=f""),
     ],
   ]
 
@@ -143,7 +143,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @mhmdwldnnnn **Atau Ke** @musik_supportdan **Karna Akun Lu Kaga Deak**"
+    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @ **Atau Ke** @ **Karna Akun Lu Kaga Deak**"
     try:
         try:
             if telethon: 
