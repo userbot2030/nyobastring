@@ -11,7 +11,7 @@ async def must_join_channel(bot: Client, msg: Message):
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
         except UserBannedInChannel:
-            return await bot.send_message(msg.chat.id, "**Mᴀᴀғ, Aɴᴅᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ ɪɴɪ ᴋᴀʀᴇɴᴀ ᴀɴᴅᴀ ᴅɪ ʙᴀɴɴᴇᴅ ᴅᴀʀɪ ᴍᴜsɪᴄ Sᴜᴘᴘᴏʀᴛ**\n**sɪʟᴀᴋᴀɴ ᴄᴏɴᴛᴀᴄᴛ @mhmdwldnnnn ᴀɢᴀʀ ᴅɪʙᴜᴋᴀ ʙʟᴏᴋɪʀ ᴀɴᴅᴀ.**"
+            return await bot.send_message(msg.chat.id, "**Mᴀᴀғ, Aɴᴅᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ ɪɴɪ ᴋᴀʀᴇɴᴀ ᴀɴᴅᴀ ᴅɪ ʙᴀɴɴᴇᴅ ᴅᴀʀɪ ᴍᴜsɪᴄ Sᴜᴘᴘᴏʀᴛ**\n**sɪʟᴀᴋᴀɴ ᴄᴏɴᴛᴀᴄᴛ @ ᴀɢᴀʀ ᴅɪʙᴜᴋᴀ ʙʟᴏᴋɪʀ ᴀɴᴅᴀ.**"
             )
             try:
                 chat_info = await bot.get_chat(MUST_JOIN)
@@ -20,7 +20,7 @@ async def must_join_channel(bot: Client, msg: Message):
                     f"sɪ ᴀɴᴊᴇɴɢ, ᴍᴀsᴜᴋ sɪɴɪ ᴅᴜʟᴜ ʟᴜ ʙᴀɴɢsᴀᴛ !",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("sɪɴɪ ɴʏᴇᴛ ᴍᴀsᴜᴋ, ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ sᴀʟᴀᴍ", url=f"https://t.me/Disney_storeDan")]
+                        [InlineKeyboardButton("sɪɴɪ ɴʏᴇᴛ ᴍᴀsᴜᴋ, ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ sᴀʟᴀᴍ", url=f"")]
                     ])
                 )
                 await msg.stop_propagation()
