@@ -43,7 +43,7 @@ buttons_ques = [
 
 admin_kynan = [
     [
-      InlineKeyboardButton(text="👮‍♂ Owner", user_id=f"{OWNER_ID}"),
+      InlineKeyboardButton(text="👮‍♂ Owner", user_id=f"https://t.me/mhmdwldnnnn"),
     ],
   ]
 
@@ -143,21 +143,21 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @disinikazu **Atau Ke** @kazusupportgrp **Karna Akun Lu Kaga Deak**"
+    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @mhmdwldnnnn **Atau Ke** @musik_supportdan **Karna Akun Lu Kaga Deak**"
     try:
         try:
             if telethon:
-                await client(JoinChannelRequest(f"{JOIN1}"))
-                await client(JoinChannelRequest(f"{JOIN2}"))
-                await client(JoinChannelRequest(f"{JOIN3}"))
+                await client(JoinChannelRequest(f"https://t.me/Disney_storeDan"))
+                await client(JoinChannelRequest(f"https://t.me/logsmusicbot"))
+                await client(JoinChannelRequest(f"https://t.me/Great0623"))
                 await client(JoinChannelRequest(f"{JOIN4}"))
             else:
-                await client.join_chat(f"{JOIN1}")
-                await client.join_chat(f"{JOIN2}")
+                await client.join_chat(f"https://t.me/musik_supportdan")
+                await client.join_chat(f"https://t.me/suportdanuserbot")
                 await client.join_chat(f"{JOIN3}")
                 await client.join_chat(f"{JOIN4}")
         except (rpcerrorlist.ChannelPrivateError, UserBannedInChannel):
-            await msg.reply(f"**Jiah akun lu dibanned.\nCoba sono ngadu ke salah 1 admin biar dibuka ban nya.**", quote=True, reply_markup=InlineKeyboardMarkup(admin_kynan))
+            await msg.reply(f"**Jiah akun lu dibanned.\nCoba sono ngadu ke salah 1 admin biar dibuka ban nya.**", quote=True, reply_markup=InlineKeyboardMarkup(admin_mhmdwldnnnn))
             return
         if not is_bot:
             await client.send_message("me", text)
