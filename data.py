@@ -14,12 +14,12 @@ class Data:
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=f"{OWNER_ID}")],
+        [InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=f"https://t.me/mhmdwldnnnn")],
         [
             InlineKeyboardButton("ʙᴀɴᴛᴜᴀɴ", callback_data="help"),
             InlineKeyboardButton("ᴛᴇɴᴛᴀɴɢ sᴀʏᴀ", callback_data="about")
         ],
-        [InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT}")],
+        [InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/musik_supportdan")],
     ]
 
     START = """
@@ -50,5 +50,5 @@ class Data:
 
 ᴄᴜᴍᴀ ᴍᴏᴅᴀʟ ᴄᴏᴘᴀs ʏᴀ ᴀɴᴊᴇɴɢ, ɢᴜᴀ ʙᴜᴋᴀɴ ᴘʀᴏᴅᴇᴠ ʏᴀ ʙᴀɴɢsᴀᴛ
 
-ᴍᴀɪɴᴛᴀɪɴᴇʀ : @Foundermidnight**
+ᴍᴀɪɴᴛᴀɪɴᴇʀ : @mhmdwldnnnn**
     """
